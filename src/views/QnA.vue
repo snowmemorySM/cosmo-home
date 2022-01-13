@@ -15,6 +15,8 @@
 
 <script>
 import PagingBar from '../components/PagingBar.vue'
+import test from '../util/postCode.js'
+
 
 export default {
   name: 'QnA',
@@ -23,25 +25,43 @@ export default {
   },
   data() {
     return {
+      isLoding: false,
       list: [],      
     };
   },
   created() {
     console.log('created')
-    this.loadData()
+    console.log('post-code test = ' + test.getAddress('1710021'));
+    this.loadData(1)
   },
   watch: {
     // 라우트가 변경되면 메소드를 다시 호출됩니다.
     // '$route': 'fetchData'
   },
   methods: {
-    loadData() {
-      console.log('loadData')
+    loadData(page, keyword) {
+      this.isLoding = true
+      var path = `/v1/api/qna?page=${page}`
+      if (keyword) {
+        path += `&keyword=${keyword}`
+      }
+      console.log(`path=${path}`)
+
+      this.$http.get(path)
+        .then((response) => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+        .finally(() => {
+          console.log('finally')
+          this.isLoding = false
+        })
     },
-    nextPage(page) {
-      console.log('nextPage :' + page)
+    nextPage(page, keyword) {
+      this.loadData(page, keyword)
     }
   }
-  
 }
 </script>
