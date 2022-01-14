@@ -1,67 +1,206 @@
 <template>
   <div class="contents">
     <div class="info-banner">
-        <h3>お問い合わせ</h3>
+        <h3>お問い合わせ</h3>        
     </div>
-    <div class="searh-box">
-        112
+    <div class="input-container">
+      <form v-on:submit="submitForm">
+        <table>
+          <tr class="row-first">
+            <th><label class="title">お名前</label></th>
+            <td class="input-box">
+              <b-form-input v-model="name" ></b-form-input>
+              <label class="check">(全角)</label>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="title">お名前(ふりがな)</label></th>
+            <td>
+              <b-form-input v-model="hurigana" ></b-form-input>
+              <label class="check">(全角)</label>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="title">メールアドレス</label></th>
+            <td>
+              <b-form-input type="email" v-model="mail" ></b-form-input>
+              <label class="check">(半角)</label>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="title">メールアドレス(確認)</label></th>
+            <td>
+              <b-form-input type="email" v-model="chkMail" ></b-form-input>
+              <label class="check">(半角)</label>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="title">電話番号</label></th>
+            <td>
+              <b-form-input type="tel" v-model="tel" ></b-form-input>
+              <label class="check">(半角)</label>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="title">郵便番号</label></th>
+            <td>
+              <b-form-input class="input-150" 
+                      v-model="postcode" 
+                      v-on:keyup="getAddress()" 
+                      placeholder="住所自動入力"></b-form-input>
+              <label class="check">例）376-0000(半角)</label>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="title">ご住所(都道府県)</label></th>
+            <td>
+              <b-form-input class="input-150" v-model="address1" ></b-form-input>
+              <label class="check">(全角)</label>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="title">ご住所(市区町村以降)</label></th>
+            <td>
+              <b-form-input v-model="address2" ></b-form-input>
+              <label class="check">(全角)</label>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="title">会社名／組織名</label></th>
+            <td>
+              <b-form-input v-model="company" ></b-form-input>
+              <label class="check">(全半角)</label>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="title">部署名</label></th>
+            <td>
+              <b-form-input v-model="department" ></b-form-input>
+              <label class="check">(全半角)</label>
+            </td>
+          </tr>
+          <tr>
+            <th><label class="title">お問い合わせ内容</label></th>
+            <td>
+              <b-form-textarea id="textarea-default" placeholder="内容入力して下さい。" v-model="contents"></b-form-textarea>
+            </td>
+          </tr>
+        </table>
+      </form>
     </div>
-    <div class="list-box">
-        221
-    </div>
-    <PagingBar v-on:next="nextPage"></PagingBar>
+    <!-- <PagingBar v-on:next="nextPage"></PagingBar> -->
   </div>
 </template>
 
 <script>
-import PagingBar from '../components/PagingBar.vue'
-import test from '../util/postCode.js'
+import test1 from '../util/ApiModule'
+import test2 from '../util/postCodeModel'
 
+const regPostCode = /\d{3}-\d{4}/
+// const regTel = /\d{2,4}-\d{2,4}-\d{4}/
 
 export default {
   name: 'QnA',
   components: { 
-    PagingBar 
+    
   },
   data() {
     return {
+      name: '',
+      hurigana: '',
+      mail:'',
+      chkMail: '',
+      tel: '',
+      postcode: '',
+      address1: '',
+      address2: '',
+      company: '',
+      department: '',
+      contents: '',
       isLoding: false,
-      list: [],      
-    };
+    }
   },
   created() {
-    console.log('created')
-    console.log('post-code test = ' + test.getAddress('1710021'));
-    this.loadData(1)
-  },
-  watch: {
-    // 라우트가 변경되면 메소드를 다시 호출됩니다.
-    // '$route': 'fetchData'
+    // api.loadData(1, '');
+    const t1 = test1.loadData(1, '')
+    console.log(`t1=${t1}`)
+    const t2 = test2.getAddress('171-0021')
+    console.log(`t2=${t2}`)
   },
   methods: {
-    loadData(page, keyword) {
-      this.isLoding = true
-      var path = `/v1/api/qna?page=${page}`
-      if (keyword) {
-        path += `&keyword=${keyword}`
-      }
-      console.log(`path=${path}`)
-
-      this.$http.get(path)
+    getAddress() {
+      if (regPostCode.test(this.postcode)) {
+        this.$http.get(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${this.postcode}`)
         .then((response) => {
-          console.log(response)
+          if (response.data.results) {
+            const result = response.data.results[0]
+            this.address1 = result.address1
+            this.address2 = result.address2 + result.address3
+          } else {
+            this.address1 = ''
+            this.address2 = ''
+            this.postcode = ''
+          }
         })
         .catch(error => {
-          console.log(error)
+            console.log(error)
         })
-        .finally(() => {
-          console.log('finally')
-          this.isLoding = false
-        })
+      }
     },
-    nextPage(page, keyword) {
-      this.loadData(page, keyword)
+    submitForm() {
+      console.log('submit')
     }
   }
 }
 </script>
+
+<style scoped>
+.input-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+tr {
+  border-bottom: 1px solid #CDCDCD;
+}
+
+.row-first {
+  border-top: 1px solid #CDCDCD;
+}
+
+th {
+  text-align: left;
+  width: 250px;
+  padding: 14px 0 10px 14px;
+  background-color: #f4f5f7;
+  border-right: 1px solid #CDCDCD;
+  color: #003cb3;
+  font-weight: bold;
+}
+
+td {
+  position: inherit;
+  width: 800px;
+  text-align: left;
+}
+
+td input {
+  width: 300px;
+  margin-left: 10px;
+  float: left;
+}
+
+td .check {
+  padding: 6px 0 0 6px;
+}
+
+td .input-150 {
+  width: 150px;
+}
+
+td textarea {
+  margin: 5px 0 5px 10px;
+  width: 300px;
+  min-height: 300px;
+}
+</style>
