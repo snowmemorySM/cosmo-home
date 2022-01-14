@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import test1 from '../util/ApiModule'
+// import test1 from '../util/ApiModule'
 import test2 from '../util/postCodeModel'
 
 const regPostCode = /\d{3}-\d{4}/
@@ -102,6 +102,9 @@ const regPostCode = /\d{3}-\d{4}/
 export default {
   name: 'QnA',
   components: { 
+    
+  },
+  watch: {
     
   },
   data() {
@@ -122,10 +125,12 @@ export default {
   },
   created() {
     // api.loadData(1, '');
-    const t1 = test1.loadData(1, '')
-    console.log(`t1=${t1}`)
-    const t2 = test2.getAddress('171-0021')
-    console.log(`t2=${t2}`)
+    // const t1 = test1.loadData(1, '')
+    // console.log(`t1=${t1}`)
+    console.log('start')
+    const t2 = test2.GET_ADDRESS()
+    console.log(t2.data)
+    console.log('end')
   },
   methods: {
     getAddress() {
