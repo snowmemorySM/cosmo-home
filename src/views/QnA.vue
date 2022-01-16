@@ -4,97 +4,98 @@
         <h3>お問い合わせ</h3>        
     </div>
     <div class="input-container">
-      <form v-on:submit="submitForm">
-        <table>
-          <tr class="row-first">
-            <th><label class="title">お名前</label></th>
-            <td class="input-box">
-              <b-form-input v-model="name" ></b-form-input>
-              <label class="check">(全角)</label>
-            </td>
-          </tr>
-          <tr>
-            <th><label class="title">お名前(ふりがな)</label></th>
-            <td>
-              <b-form-input v-model="hurigana" ></b-form-input>
-              <label class="check">(全角)</label>
-            </td>
-          </tr>
-          <tr>
-            <th><label class="title">メールアドレス</label></th>
-            <td>
-              <b-form-input type="email" v-model="mail" ></b-form-input>
-              <label class="check">(半角)</label>
-            </td>
-          </tr>
-          <tr>
-            <th><label class="title">メールアドレス(確認)</label></th>
-            <td>
-              <b-form-input type="email" v-model="chkMail" ></b-form-input>
-              <label class="check">(半角)</label>
-            </td>
-          </tr>
-          <tr>
-            <th><label class="title">電話番号</label></th>
-            <td>
-              <b-form-input type="tel" v-model="tel" ></b-form-input>
-              <label class="check">(半角)</label>
-            </td>
-          </tr>
-          <tr>
-            <th><label class="title">郵便番号</label></th>
-            <td>
-              <b-form-input class="input-150" 
-                      v-model="postcode" 
-                      v-on:keyup="getAddress()" 
-                      placeholder="住所自動入力"></b-form-input>
-              <label class="check">例）376-0000(半角)</label>
-            </td>
-          </tr>
-          <tr>
-            <th><label class="title">ご住所(都道府県)</label></th>
-            <td>
-              <b-form-input class="input-150" v-model="address1" ></b-form-input>
-              <label class="check">(全角)</label>
-            </td>
-          </tr>
-          <tr>
-            <th><label class="title">ご住所(市区町村以降)</label></th>
-            <td>
-              <b-form-input v-model="address2" ></b-form-input>
-              <label class="check">(全角)</label>
-            </td>
-          </tr>
-          <tr>
-            <th><label class="title">会社名／組織名</label></th>
-            <td>
-              <b-form-input v-model="company" ></b-form-input>
-              <label class="check">(全半角)</label>
-            </td>
-          </tr>
-          <tr>
-            <th><label class="title">部署名</label></th>
-            <td>
-              <b-form-input v-model="department" ></b-form-input>
-              <label class="check">(全半角)</label>
-            </td>
-          </tr>
-          <tr>
-            <th><label class="title">お問い合わせ内容</label></th>
-            <td>
-              <b-form-textarea id="textarea-default" placeholder="内容入力して下さい。" v-model="contents"></b-form-textarea>
-            </td>
-          </tr>
-        </table>
-      </form>
+      <table>
+        <tr class="row-first">
+          <th><label class="title">お名前</label></th>
+          <td class="input-box">
+            <b-form-input v-model="name" ></b-form-input>
+            <label class="check">(全角)</label>
+          </td>
+        </tr>
+        <tr>
+          <th><label class="title">お名前(ふりがな)</label></th>
+          <td>
+            <b-form-input v-model="hurigana" ></b-form-input>
+            <label class="check">(全角)</label>
+          </td>
+        </tr>
+        <tr>
+          <th><label class="title">メールアドレス</label></th>
+          <td>
+            <b-form-input type="email" v-model="mail" ></b-form-input>
+            <label class="check">(半角)</label>
+          </td>
+        </tr>
+        <tr>
+          <th><label class="title">メールアドレス(確認)</label></th>
+          <td>
+            <b-form-input type="email" v-model="chkMail" ></b-form-input>
+            <label class="check">(半角)</label>
+          </td>
+        </tr>
+        <tr>
+          <th><label class="title">電話番号</label></th>
+          <td>
+            <b-form-input type="tel" v-model="tel" ></b-form-input>
+            <label class="check">(半角)</label>
+          </td>
+        </tr>
+        <tr>
+          <th><label class="title">郵便番号</label></th>
+          <td>
+            <b-form-input class="input-150" 
+                    v-model="postcode" 
+                    v-on:keyup="getAddress()" 
+                    placeholder="住所自動入力"></b-form-input>
+            <label class="check">例）376-0000(半角)</label>
+          </td>
+        </tr>
+        <tr>
+          <th><label class="title">ご住所(都道府県)</label></th>
+          <td>
+            <b-form-input class="input-150" v-model="address1" ></b-form-input>
+            <label class="check">(全角)</label>
+          </td>
+        </tr>
+        <tr>
+          <th><label class="title">ご住所(市区町村以降)</label></th>
+          <td>
+            <b-form-input v-model="address2" ></b-form-input>
+            <label class="check">(全角)</label>
+          </td>
+        </tr>
+        <tr>
+          <th><label class="title">会社名／組織名</label></th>
+          <td>
+            <b-form-input v-model="company" ></b-form-input>
+            <label class="check">(全半角)</label>
+          </td>
+        </tr>
+        <tr>
+          <th><label class="title">部署名</label></th>
+          <td>
+            <b-form-input v-model="department" ></b-form-input>
+            <label class="check">(全半角)</label>
+          </td>
+        </tr>
+        <tr>
+          <th><label class="title">お問い合わせ内容</label></th>
+          <td>
+            <b-form-textarea id="textarea-default" placeholder="内容入力して下さい。" v-model="contents"></b-form-textarea>
+          </td>
+        </tr>
+      </table>
+      <div class='btn-box'>
+        <b-button variant="success" @click="submitForm">送信</b-button>
+      </div>
     </div>
     <!-- <PagingBar v-on:next="nextPage"></PagingBar> -->
   </div>
 </template>
 
 <script>
-import test1 from '../util/ApiModule'
-import test2 from '../util/postCodeModel'
+import api from '../api/ApiModul'
+// import test2 from '../util/postCodeModel'
 
 const regPostCode = /\d{3}-\d{4}/
 // const regTel = /\d{2,4}-\d{2,4}-\d{4}/
@@ -120,17 +121,10 @@ export default {
       isLoding: false,
     }
   },
-  created() {
-    // api.loadData(1, '');
-    const t1 = test1.loadData(1, '')
-    console.log(`t1=${t1}`)
-    const t2 = test2.getAddress('171-0021')
-    console.log(`t2=${t2}`)
-  },
   methods: {
     getAddress() {
       if (regPostCode.test(this.postcode)) {
-        this.$http.get(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${this.postcode}`)
+        api.getAddress(this.postcode)
         .then((response) => {
           if (response.data.results) {
             const result = response.data.results[0]
@@ -148,7 +142,25 @@ export default {
       }
     },
     submitForm() {
-      console.log('submit')
+      const formData = new FormData();
+      formData.append('name',this.name)
+      formData.append('hurigana',this.hurigana)
+      formData.append('email',this.mail)
+      formData.append('tel',this.tel)
+      formData.append('postCode',this.postcode)
+      formData.append('address', this.address1)
+      formData.append('addrDetail', this.address2)
+      formData.append('company',this.company)
+      formData.append('department',this.departent)
+      formData.append('contents',this.contents)
+      // console.log('submit : ' + formData('name'))
+      api.upload(formData)
+      .then((response) => {
+        console.log(`response => ${response}`)
+      })
+      .catch(error => {
+        console.log(`error => ${error}`)
+      })
     }
   }
 }
@@ -166,6 +178,10 @@ tr {
 
 .row-first {
   border-top: 1px solid #CDCDCD;
+}
+
+table {
+  width: 100%;
 }
 
 th {
@@ -200,7 +216,19 @@ td .input-150 {
 
 td textarea {
   margin: 5px 0 5px 10px;
-  width: 300px;
+  width: 98%;
   min-height: 300px;
+}
+
+.btn-box {
+  position: relative;
+  margin: 20px 0 30px 0;
+  text-align: center;
+}
+
+.btn-box button {
+  padding: 5px 90px;
+    font-size: 25px;
+    font-weight: bold;
 }
 </style>
