@@ -95,7 +95,6 @@
 
 <script>
 import api from '../api/ApiModul'
-// import test2 from '../util/postCodeModel'
 
 const regPostCode = /\d{3}-\d{4}/
 // const regTel = /\d{2,4}-\d{2,4}-\d{4}/
@@ -103,6 +102,9 @@ const regPostCode = /\d{3}-\d{4}/
 export default {
   name: 'QnA',
   components: { 
+    
+  },
+  watch: {
     
   },
   data() {
