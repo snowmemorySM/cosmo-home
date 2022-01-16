@@ -1,11 +1,25 @@
 <template>
-  <div>
-      <e-ERP/>
-      <e-SCM/>
-      <e-Procurement/>
-      <e-MarketPlace/>
-      <e-ShoppingMall/>
-      <e-HomePage/>
+  <div class="container">
+    <b-tabs content-class="mt-3">
+      <b-tab title="E-ERP">
+        <e-ERP/>
+      </b-tab>
+      <b-tab title="E-SCM">
+        <e-SCM/>
+      </b-tab>
+      <b-tab title="E-Procurement">
+        <e-Procurement/>
+      </b-tab>
+      <b-tab title="E-MarketPlace">
+        <e-MarketPlace/>
+      </b-tab>
+      <b-tab title="E-ShoppingMall">
+        <e-ShoppingMall/>
+      </b-tab>
+      <b-tab title="E-HomePage">
+        <e-HomePage/>
+      </b-tab>
+    </b-tabs>
   </div>
 </template>
 
@@ -36,3 +50,18 @@ export default {
 }
 
 </script>
+
+<style scoped>
+.container {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  min-height: 500px;
+}
+.container .tab-pane {
+  min-height: 500px;
+  background-color: aquamarine;
+}
+</style>
