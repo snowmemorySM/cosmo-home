@@ -8,7 +8,7 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <router-link class="nav-item nav-link" to="/company/message">メッセージ</router-link>
+                    <router-link class="nav-item nav-link" to="/message">メッセージ</router-link>
                     <router-link class="nav-item nav-link" to="/solution">ソリューション案内</router-link>
                     <router-link class="nav-item nav-link" to="/company">企業情報</router-link>
                     <router-link class="nav-item nav-link" to="/recruit">採用情報</router-link>

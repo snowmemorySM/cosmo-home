@@ -7,9 +7,10 @@ import Company from '../views/Company.vue'
 import Solution from '../views/Solution.vue'
 import Recruit from '../views/Recruit.vue'
 import QnA from '../views/QnA.vue'
+import Message from '../views/Message.vue'
 
 // Sub Contents
-import Message from '@/components/company/Message.vue'
+
 import Info from '@/components/company/Info.vue'
 import Contact from '@/components/company/Contact.vue'
 import Performance from '@/components/company/Performance.vue'
@@ -25,14 +26,15 @@ const routes = [
     component: Home
   },
   {
+    path: '/message',
+    name: 'Message',
+    component: Message
+  },
+  {
     path: '/company',
     name: 'Company',
     component: Company,
     children: [
-      {
-        path: 'message',
-        component: Message
-      },
       {
         path: 'info',
         component: Info
