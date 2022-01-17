@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <b-tabs content-class="mt-3">
+    <div class="sol-banner">
+
+    </div>
+    <b-tabs content-class="mt-3" fill>
       <b-tab title="E-ERP">
         <e-ERP/>
       </b-tab>
@@ -60,8 +63,17 @@ export default {
   width: 80%;
   min-height: 500px;
 }
+
+.sol-banner {
+  width: 100%;
+  height: 100px;
+  background-color: darkcyan;  
+  margin-bottom: 20px;
+}
+
 .container .tab-pane {
   min-height: 500px;
-  background-color: aquamarine;
 }
+
+
 </style>

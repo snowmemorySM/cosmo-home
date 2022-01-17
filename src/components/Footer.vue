@@ -12,7 +12,10 @@ export default {
 
 <style scoped>
 #footer {
-  top: 60px;
   position: relative;
+  display: block;
+  top: 60px;
+  min-height: 50px;
+  border-top: 1px solid #CDCDCD;
 }
 </style>
