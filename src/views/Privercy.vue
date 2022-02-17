@@ -22,7 +22,6 @@ export default {
 .policy-box {
   text-align: left;
   font-size: 15px;
-  background-color: aquamarine;
 }
 
 .policy-box .block,
