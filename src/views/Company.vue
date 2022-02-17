@@ -13,7 +13,7 @@
         <router-link class="menu-item" to="/company/contact">会社位置</router-link>
         <router-link class="menu-item" to="/company/performance">実籍</router-link>
         <router-link class="menu-item" to="/company/soshikizu">組織図</router-link>
-        <router-link class="menu-item" to="/company/privacy">個人情報保護方針</router-link>
+        <router-link class="menu-item" to="/privercy/privacy_policy">個人情報保護方針</router-link>
       </div>
     </div>
 </template>

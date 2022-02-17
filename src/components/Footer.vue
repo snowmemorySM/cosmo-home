@@ -4,8 +4,8 @@
           <div class="left-box">
             <span id="per-info">
               <!-- 개인정보 -->
-              <b-link class="per-info-link" href="#foo" disabled>個人情報保護方針</b-link>
-              <b-link class="per-info-link" disabled>個人情報の取り扱いについて</b-link>
+              <b-link class="per-info-link" href="/privercy/privacy_policy">個人情報保護方針</b-link>
+              <b-link class="per-info-link" href="/privercy/privacy_handing">個人情報の取り扱いについて</b-link>
             </span>
             <span id="cp-right">
               <!-- 회사 -->

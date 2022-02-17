@@ -8,14 +8,18 @@ import Solution from '../views/Solution.vue'
 import Recruit from '../views/Recruit.vue'
 import QnA from '../views/QnA.vue'
 import Message from '../views/Message.vue'
+import Privercy from '../views/Privercy.vue'
 
 // Sub Contents
-
 import Info from '@/components/company/Info.vue'
 import Contact from '@/components/company/Contact.vue'
 import Performance from '@/components/company/Performance.vue'
 import Soshikizu from '@/components/company/Soshikizu.vue'
 import Privacy from '@/components/company/Privacy.vue'
+
+// 個人情報
+import privacyHanding from '@/components/privercy/privacyHanding.vue';
+import privacyPolicy from '@/components/privercy/privacyPolicy.vue';
 
 Vue.use(VueRouter)
 
@@ -71,6 +75,21 @@ const routes = [
     path: '/qna',
     name: 'QnA',
     component: QnA
+  },
+  {
+    path: '/privercy',
+    name: 'Privercy',
+    component: Privercy,
+    children: [
+      {
+        path: 'privacy_policy',
+        component: privacyPolicy
+      },
+      {
+        path: 'privacy_handing',
+        component: privacyHanding
+      },
+    ]
   },
   {
     path: '/about',
