@@ -15,11 +15,11 @@ import Info from '@/components/company/Info.vue'
 import Contact from '@/components/company/Contact.vue'
 import Performance from '@/components/company/Performance.vue'
 import Soshikizu from '@/components/company/Soshikizu.vue'
-import Privacy from '@/components/company/Privacy.vue'
 
 // 個人情報
-import privacyHanding from '@/components/privercy/privacyHanding.vue';
-import privacyPolicy from '@/components/privercy/privacyPolicy.vue';
+import PrivercyHanding from '@/components/privercy/PrivercyHanding.vue';
+import PrivercyPolicy from '@/components/privercy/PrivercyPolicy.vue';
+import PrivercyDisclosure from '@/components/privercy/PrivercyDisclosure.vue';
 
 Vue.use(VueRouter)
 
@@ -56,8 +56,8 @@ const routes = [
         component: Soshikizu
       },
       {
-        path: 'privacy',
-        component: Privacy
+        path: 'privercy',
+        component: Privercy
       }
     ]
   },
@@ -82,13 +82,17 @@ const routes = [
     component: Privercy,
     children: [
       {
-        path: 'privacy_policy',
-        component: privacyPolicy
+        path: 'privercy_policy',
+        component: PrivercyPolicy
       },
       {
-        path: 'privacy_handing',
-        component: privacyHanding
+        path: 'privercy_handing',
+        component: PrivercyHanding
       },
+      {
+        path: 'privercy_disclosure',
+        component: PrivercyDisclosure
+      }
     ]
   },
   {

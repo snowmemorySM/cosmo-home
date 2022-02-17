@@ -13,7 +13,7 @@ export default {
 <style>
 .center-box {
   position: relative;
-  width: 65%;
+  width: 70%;
   margin: 0 auto;
   min-height: 400px;
   margin-top: 20px;
@@ -22,6 +22,7 @@ export default {
 .policy-box {
   text-align: left;
   font-size: 15px;
+  background-color: aquamarine;
 }
 
 .policy-box .block,

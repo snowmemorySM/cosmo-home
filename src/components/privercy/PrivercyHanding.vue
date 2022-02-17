@@ -1,7 +1,7 @@
 <template>
   <div class="policy-box">
     <div class="block">
-      <h1>個人情報保護方針</h1>
+      <h2>個人情報保護方針</h2>
     </div>
 
     <div class="block">
@@ -118,6 +118,10 @@
               03-5860-7565 <br/>
               フリーダイヤル：0120-700-779
             </div>
+          </div>
+          <div class="pvivarcy">
+            コスモコンサルティング 株式会社
+            個人情報保護管理者 井上 賢治
           </div>
         </div>
       </div>
