@@ -1,0 +1,31 @@
+.info-box .col-2, .info-box .col-10 {
+    padding: 0.75rem 1rem 0.75rem 1rem;
+    text-align: left;
+  }
+  
+  .info-box .col-2 {
+    background-color: rgb(3, 43, 97);
+    border-bottom: 1px solid #fff;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .info-box .col-10 {
+    border-bottom: 1px solid rgb(53, 54, 58);;
+  }
+  
+  .top .col-2 {
+      border-top: 1px solid #fff;
+  }
+  
+  .top .col-10 {
+      border-top: 1px solid rgb(53, 54, 58);;
+  }
+  
+  .info-box .row .col-10 ul {
+      padding: 0;
+  }
+  
+  .info-box .row .col-10 ul li {
+    list-style-type: none;
+  }

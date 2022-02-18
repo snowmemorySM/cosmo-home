@@ -1,33 +1,47 @@
 <template>
     <div class="company">
-      <div class="banner-box">
-        <div id="title-bg" class="title-box">
-          <div class="title">
-            会社情報
+      <div v-if="disabled">
+        <div class="banner-box">
+          <div id="title-bg" class="title-box">
+            <div class="title">
+              会社情報
+            </div>
           </div>
         </div>
+        <div class="meun-box">
+          <router-link class="menu-item" to="/company/info">会社概要</router-link>
+          <router-link class="menu-item" to="/company/contact">会社位置</router-link>
+          <router-link class="menu-item" to="/company/soshikizu">組織図</router-link>
+        </div>
       </div>
-      <div class="meun-box">
-        <router-link class="menu-item" to="/company/info">会社概要</router-link>
-        <router-link class="menu-item" to="/company/message">体表おいさつ</router-link>
-        <router-link class="menu-item" to="/company/contact">会社位置</router-link>
-        <router-link class="menu-item" to="/company/performance">実籍</router-link>
-        <router-link class="menu-item" to="/company/soshikizu">組織図</router-link>
-        <router-link class="menu-item" to="/privercy/privacy_policy">個人情報保護方針</router-link>
+      <div v-else class="container">
+        <router-view></router-view>
       </div>
     </div>
 </template>
 
 <script>
+
+const range = '/company';
+
 export default {
-  name: 'Company'
+  name: 'Company',
+  computed: {
+      disabled() {
+        return this.$route.path == range; 
+      }
+  },
+  data() {
+    return {
+    };
+  },
 }
 </script>
 
 <style scoped>
-
-.company {
-  background-color: slategrey;
+.container {
+  position: relative;
+  min-height: 500px;
 }
 
 .banner-box {
@@ -63,7 +77,7 @@ export default {
   flex-wrap: wrap;
   width: 90%;
   margin: 0 auto;
-  padding-top: 25px;;
+  padding-top: 25px;
   justify-content: space-between;
 }
 
@@ -72,7 +86,16 @@ export default {
     max-width: 31.5%;
     padding: 4em;
     margin-bottom: 2em;
-    background-color: aquamarine;
+    border: 1px solid #CDCDCD;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
+.info-box {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 20px;
+  min-height: 500px;
+}
 </style>

@@ -1,3 +1,5 @@
 <template>
-    <div>Message Page</div>
+    <div class="container">
+        Message Page
+    </div>
 </template>

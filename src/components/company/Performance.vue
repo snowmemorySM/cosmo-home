@@ -1,3 +1,5 @@
 <template>
-    <div>Performance Page</div>
+    <div class="container">
+        なし
+    </div>
 </template>
