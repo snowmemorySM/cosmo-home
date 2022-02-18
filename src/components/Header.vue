@@ -5,7 +5,6 @@
                 <img v-bind="logProps" alt="Vue logo" src="../assets/logo.png">
             </router-link>
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
                     <router-link class="nav-item nav-link" to="/message">メッセージ</router-link>
@@ -35,5 +34,11 @@ export default {
     position: fixed;
     width: 100%;
     z-index: 1000;
+}
+
+#header #nav-collapse {
+    right: 0;
+    position: absolute;
+    margin-right: 70px;
 }
 </style>
