@@ -32,7 +32,7 @@
               <h3>お知らせ</h3>
             </span>
             <span class="right-btn">
-              <b-link href="#foo" disabled>
+              <b-link href="/notice">
                 <b-icon icon="list-ol" aria-hidden="true"></b-icon> 一覧はこちら
               </b-link>
             </span>

@@ -9,6 +9,7 @@ import Recruit from '../views/Recruit.vue'
 import QnA from '../views/QnA.vue'
 import Message from '../views/Message.vue'
 import Privercy from '../views/Privercy.vue'
+import Notice from '../views/Notice.vue'
 
 // Sub Contents
 import Info from '@/components/company/Info.vue'
@@ -94,6 +95,11 @@ const routes = [
         component: PrivercyDisclosure
       }
     ]
+  },
+  {
+    path: '/notice',
+    name: 'Notice',
+    component: Notice
   },
   {
     path: '/about',
