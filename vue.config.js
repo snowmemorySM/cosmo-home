@@ -1,4 +1,6 @@
 module.exports = {
+    publicPath: '/docs',
+    outputDir: 'docs',
     devServer: {
         proxy: {
             '/v1/api': {
