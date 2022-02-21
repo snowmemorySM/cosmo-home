@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: '/docs',
+    publicPath: '/cosmo-home',
     outputDir: 'docs',
     devServer: {
         proxy: {
