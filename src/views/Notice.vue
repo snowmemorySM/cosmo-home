@@ -6,7 +6,11 @@
         <div class="notice-box">
             <b-table id="notice-table" striped hover :items="list" :fields="fields" :per-page="perPage" :current-page="currentPage">
                 <template #cell(title)="row">
-                    <div class="cell-title">{{row.item.title}}</div>
+                    <div class="cell-title">
+                        <router-link :to="{path: `/notice/${row.item.id}`}" class="main-link-info">
+                            {{row.item.title}}
+                        </router-link>
+                    </div>
                 </template>
             </b-table>
         </div>  

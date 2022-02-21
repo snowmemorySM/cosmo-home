@@ -5,22 +5,22 @@
       <div class="quick-links">
         <div class="row">
           <div class="col-sm">
-            <a href="/company" class="main-link-info">
+            <router-link to="/company" class="main-link-info">
               <div class="title">企業紹介</div>
               <div class="more">MORE</div>
-            </a>
+            </router-link>
           </div>
           <div class="col-sm">
-            <a href="/solution"  class="main-link-info">
+            <router-link to="/solution" class="main-link-info">
               <div class="title">ソリューション</div>
               <div class="more">MORE</div>
-            </a>
+            </router-link>
           </div>
           <div class="col-sm">
-            <a href="/recruit" class="main-link-info">
+            <router-link to="/recruit" class="main-link-info">
               <div class="title">採用情報</div>
               <div class="more">MORE</div>
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
@@ -32,16 +32,18 @@
               <h3>お知らせ</h3>
             </span>
             <span class="right-btn">
-              <b-link href="/notice">
+              <router-link to="/notice">
                 <b-icon icon="list-ol" aria-hidden="true"></b-icon> 一覧はこちら
-              </b-link>
+              </router-link>
             </span>
           </div>
           <div class="notice-list">
             <div v-for="(item, index) in list" :key="index" class="row-box">
               <div class="notice-date">{{item.date}}</div>
               <div class="notice-title">
-                <a v-bind:href="`/notice/${item.id}`">{{item.title}}</a>
+                <router-link :to="{path: `/notice/${item.id}`}" class="main-link-info">
+                  {{item.title}}
+                </router-link>
               </div>
             </div>
           </div>
