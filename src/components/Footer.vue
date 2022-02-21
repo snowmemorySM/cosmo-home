@@ -4,11 +4,9 @@
           <div class="left-box">
             <span id="per-info">
               <!-- 개인정보 -->
-              <b-link class="per-info-link" href="/privercy/privercy_policy">個人情報保護方針</b-link>
-              <b-link class="per-info-link" href="/privercy/privercy_handing">個人情報の取り扱いについて</b-link>
-              <b-link class="per-info-link" href="/privercy/privercy_disclosure">開示対象個人情報に関する問合せについてのご案内
-</b-link>
-              
+              <router-link :to="{path: '/privercy/privercy_policy'}" class="per-info-link">個人情報保護方針</router-link>
+              <router-link :to="{path: '/privercy/privercy_handing'}" class="per-info-link">個人情報の取り扱いについて</router-link>
+              <router-link :to="{path: '/privercy/privercy_disclosure'}" class="per-info-link">開示対象個人情報に関する問合せについてのご案内</router-link>
             </span>
             <span id="cp-right">
               <!-- 회사 -->
