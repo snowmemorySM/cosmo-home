@@ -3,29 +3,39 @@
         <div class="main-title">
             <h2>お知らせ</h2>
         </div>
-        <div class="notice-box">
-            <b-table id="notice-table" striped hover :items="list" :fields="fields" :per-page="perPage" :current-page="currentPage">
-                <template #cell(title)="row">
-                    <div class="cell-title">
-                        <router-link :to="{path: `/notice/${row.item.id}`}" class="main-link-info">
-                            {{row.item.title}}
-                        </router-link>
-                    </div>
-                </template>
-            </b-table>
-        </div>  
-        <b-pagination 
-            v-model="currentPage" 
-            :total-rows="totalCount" 
-            :per-page="perPage" 
-            align="center"
-            aria-controls="notice-table">
-        </b-pagination>
+        <div v-if="isDetail">
+            <router-view></router-view>
+        </div>
+        <div v-else>        
+            <div class="notice-box">
+                <b-table id="notice-table" striped hover :items="list" :fields="fields" :per-page="perPage" :current-page="currentPage">
+                    <template #cell(title)="row">
+                        <div class="cell-title">
+                            <router-link :to="{path: `/notice/${row.item.id}`}" class="main-link-info">
+                                {{row.item.title}}
+                            </router-link>
+                        </div>
+                    </template>
+                </b-table>
+            </div>  
+            <b-pagination 
+                v-model="currentPage" 
+                :total-rows="totalCount" 
+                :per-page="perPage" 
+                align="center"
+                aria-controls="notice-table">
+            </b-pagination>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
+    computed: {
+        isDetail: function () {
+            return (this.$route.params.id)
+        }
+    },
     data() {
         return {
             fields: [
@@ -113,5 +123,10 @@ export default {
 
 .cell-title {
     text-align: left;
+}
+
+.cell-title a {
+    color: #000;
+    text-decoration: none;   
 }
 </style>

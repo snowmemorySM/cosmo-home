@@ -16,6 +16,7 @@ import Info from '@/components/company/Info.vue'
 import Contact from '@/components/company/Contact.vue'
 import Performance from '@/components/company/Performance.vue'
 import Soshikizu from '@/components/company/Soshikizu.vue'
+import NoticeDetail from '@/components/NoticeDetail.vue'
 
 // 個人情報
 import PrivercyHanding from '@/components/privercy/PrivercyHanding.vue';
@@ -99,7 +100,14 @@ const routes = [
   {
     path: '/notice',
     name: 'Notice',
-    component: Notice
+    component: Notice,
+    children: [
+      {
+        path: '/notice/:id',
+        component: NoticeDetail,
+      }
+    ],
+    
   },
   {
     path: '/about',
