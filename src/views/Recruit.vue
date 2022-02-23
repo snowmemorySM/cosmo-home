@@ -75,6 +75,7 @@
       </div>
       <b-modal ref="modal-map" id="modal-map" size="xl" hide-header centered >
         <template #modal-footer="{ cancel }">
+          <b-button size="sm" variant="outline-primary" v-show="appBtnDisabled" @click="openNativeApp()">アプリで開け</b-button>
           <b-button size="sm" variant="outline-danger" @click="cancel()">閉じる</b-button>
         </template>
         <div>
@@ -87,16 +88,24 @@
 <script>
 import loader from '../api/gmaps'
 
-const location = { lat: 35.6955595, lng: 139.7792479 };
+const location = { lat: 35.695549, lng: 139.781406 };
+const title = 'コスモコンサルタント株式会社';
 
 export default {
     name: 'Recruit',
+    mounted() {
+      this.init();
+    },
     data() {
       return {
         map: null,
+        appBtnDisabled: false,
       };
     },
     methods: {
+      init() {
+        this.appBtnDisabled = /android|iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
+      },
       openModalMap() {
         this.$refs['modal-map'].show();
         loader.load().then((google) => {
@@ -107,10 +116,24 @@ export default {
             new google.maps.Marker({
               position: location,
               map,
-              title: "コスモコンサルタント株式会社",
+              title: title,
             });
             this.map = map
         });
+      },
+      openNativeApp() {
+        // eslint-disable-next-line no-unused-vars
+        var link = '';
+        const os = navigator.userAgent.toLowerCase();
+        alert(`and : ${os.indexOf('android')}`);
+        if (os.indexOf('android') > -1) {
+          // andorid
+          link = `geo:${location.lat},${location.lng}?q=${location.lat},${location.lng}`
+        } else if (/iphone|ipad|ipod/i.test(os)) {
+          // ios
+          link =`comgooglemaps://?q=${location.lat},${location.lng}&center=${location.lat},${location.lng}&zoom=15&views=transit`
+        }
+        window.open(link, "_blank");
       },
       closeModalMap() {
         this.$refs['modal-map'].hide();
