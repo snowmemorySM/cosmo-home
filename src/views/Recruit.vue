@@ -179,4 +179,21 @@ export default {
 }
 
 
+@media (max-width: 991px) {
+  .info-box { width: 80%; }
+}
+
+/* 제목과 내요을 위치를 변경 */
+@media (max-width: 684px) {
+  .rec-box { width: 90%; }
+  .row { display: block; }
+  .top .col-10 { border-top: 0px; }
+  .rec-box .col-2 { width: 35%; }
+  .rec-box .col-10 {
+      margin-bottom: 10px;
+      width: 100%;
+  }
+}
+
+
 </style>

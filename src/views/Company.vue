@@ -14,7 +14,7 @@
           <router-link class="menu-item" to="/company/soshikizu">組織図</router-link>
         </div>
       </div>
-      <div v-else class="container">
+      <div v-else>
         <router-view></router-view>
       </div>
     </div>

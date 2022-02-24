@@ -1,12 +1,21 @@
 <template>
-    <div class="container">
+    <div class="message-box">
         <div class="representative-box">
-            <div>
-                <label class="company">コスモコンサルティング株式会社</label><br/>
-                <label class="representative">体表取締役</label>
+            <div class="company-name">
+                <div>
+                    コスモコンサルティング株式会社
+                </div>
+                <div>
+                    体表取締役
+                </div>
             </div>
             <div class="name">
-                <b>白山 善夫[SHIRAYAMA YOSIO]</b>
+                <span>
+                    <b>白山 善夫</b>    
+                </span>
+                <span>
+                    <b>[SHIRAYAMA YOSIO]</b>
+                </span>
             </div>
         </div>
         <b><font class="shoshin">「初心」 </font></b>
@@ -42,7 +51,7 @@ export default {
 
 <style scoped>
 
-.container {
+.message-box {
     position: relative;
     display: block;
     width: 70%;    
@@ -60,27 +69,44 @@ export default {
     font-weight: initial;
 }
 
-.representative-box label{
+.company-name {
     font-size: 25px;
     line-height: 1;
+}
+
+.company-name div {
+    margin-bottom: 10px;
 }
 
 .representative-box .name{
     font-size: 30px;
     font-weight: bolder;
     padding-top: 10px;
-    /* fontnの設定必要 */
 }
 
-.container .cont {
+.message-box .cont {
     margin-bottom: 30px;
     line-height: 25px;
 }
 
-.container .shoshin {
+.message-box .shoshin {
     display: block;
     color: #0066FF;
     font-size: 35px;
     padding-bottom: 40px;
 }
+
+@media (max-width: 984px) {
+    .representative-box .name span,
+    .message-box .shoshin,
+    .company-name div {
+        text-align: center;
+    }
+
+    .representative-box .name span {
+        display: block;
+    }
+}
+
+
 </style>

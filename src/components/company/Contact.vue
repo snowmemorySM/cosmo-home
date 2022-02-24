@@ -1,7 +1,7 @@
 <template>
     <div class="info-box">
         <div class="row">
-            <h2>採用情報</h2>
+            <h2>会社位置</h2>
         </div>
         <div class="row top">
             <div class="col-2">金融</div>
