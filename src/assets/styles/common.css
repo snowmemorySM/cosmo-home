@@ -9,3 +9,14 @@ table.b-table thead tr th.w20 {
 table.b-table thead tr th.w60 {
     width: 70%;
 }
+
+@media (max-width: 684px) {
+    .tabs-box-nav {
+        display: block;
+    }
+
+    .nav-tabs .nav-link.active {
+        background-color: #cdcdcd;
+        border-radius: 0;
+    }
+}

@@ -1,6 +1,6 @@
 <template>
     <div id="header">
-        <b-navbar toggleable="lg" type="dark" variant="dark" style="height: 60px;">
+        <b-navbar toggleable="lg" type="dark" variant="dark">
             <router-link class="navbar-brand nav-link" to="/">
                 <img v-bind="logProps" alt="Vue logo" src="../assets/logo.png">
             </router-link>
@@ -36,9 +36,24 @@ export default {
     z-index: 1000;
 }
 
+.navbar {
+    padding-bottom: 0.7rem;
+}
+
 #header #nav-collapse {
     right: 0;
     position: absolute;
     margin-right: 70px;
 }
+
+
+
+@media (max-width: 991px) {
+    
+    #header #nav-collapse {
+        position: relative;
+    }
+}
+
+
 </style>

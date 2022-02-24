@@ -204,4 +204,38 @@ export default {
   white-space:nowrap;
 }
 
+@media (max-width: 790px) {
+
+  #main-banner {
+    min-height: 405px;
+  }
+  
+  .quick-links {
+    position: relative;
+    margin: 0;
+  }
+  .quick-links .row {
+    display: block
+  }
+
+  .quick-links .row .col-sm {
+    margin-bottom: 10px;
+  }
+
+  .quick-links .row .col-sm a {
+    height: 120px;
+  }
+
+  .quick-links .main-link-info .title {
+      padding: 23px 0 13px;
+      font-size: 25px;
+      color: #FFF;
+      font-weight: bold;
+  }
+
+  .quick-links .main-link-info .more {
+    margin-top: 0; 
+  }
+}
+
 </style>
