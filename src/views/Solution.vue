@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
+  <div class="solution-box">
     <div class="sol-banner">
 
     </div>
-    <b-tabs content-class="mt-3" fill>
+    <b-tabs nav-class="tabs-box-nav" content-class="mt-3" justified>
       <b-tab title="E-ERP">
         <e-ERP/>
       </b-tab>
@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.solution-box {
   position: relative;
   margin: 0 auto;
   margin-top: 20px;
@@ -71,9 +71,18 @@ export default {
   margin-bottom: 20px;
 }
 
-.container .tab-pane {
+.solution-box .tab-pane {
   min-height: 500px;
 }
+
+@media (max-width: 684px) {
+  .solution-box {
+    width: 90%;
+  }
+  
+  
+}
+
 
 
 </style>
