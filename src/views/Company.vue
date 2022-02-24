@@ -98,4 +98,23 @@ export default {
   padding-top: 20px;
   min-height: 500px;
 }
+
+@media (max-width: 689px) {
+  .meun-box {    
+    display: block;
+    min-height: 200px;
+    position: relative;
+  }
+
+  .meun-box .menu-item {
+    display: block;
+    position: relative;
+    flex-basis: 0;
+    max-width: 80%;
+    padding: 28px;
+    left: 10%;
+    margin-bottom: 10px;
+  }
+}
+
 </style>

@@ -87,4 +87,16 @@ export default {
   height: 75px;
 }
 
+@media (max-width: 790px) {
+  #per-info .per-info-link {
+    margin-right: 0;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .fot-info-box .right-box {
+    right: -15px; 
+  }
+}
+
 </style>
